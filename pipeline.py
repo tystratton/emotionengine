@@ -95,7 +95,7 @@ def main():
             for post_index, post in enumerate(top_posts, 1):
                 print(f"\nProcessing post {post_index}/10: {post.title}")
                 
-                # Always create the post entry first, regardless of whether it has text
+                # Create the post entry
                 post_time = datetime.fromtimestamp(post.created_utc)
                 cur.execute("""
                     INSERT INTO posts (subreddit, post_id, author, title, post_text, post_url, timestamp)
@@ -182,7 +182,7 @@ def main():
                             sentiment_result['primary_emotion'],
                             comment_time
                         ))
-                        
+
                         comment_id = cur.fetchone()[0]
                         
                         # Insert each emotion separately

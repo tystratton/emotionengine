@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Engine</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add Flatpickr for date picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Add custom JavaScript -->
+    <script src="static/scripts.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Emotion Engine</h1>
+            <p class="subtitle">Analyzing sentiment analysis of /r/2007scape</p>
+        </header>
+
+        <div class="chart-card">
+            <!-- Add date picker -->
+            <div class="date-picker-container">
+                <label for="datePicker">Select Date:</label>
+                <input type="text" id="datePicker" class="date-picker" placeholder="Select a date">
+                <button id="updateChart" class="update-button">Update Chart</button>
+            </div>
+            
+            <div class="chart-layout">
+                <div class="legend-container">
+                    <div class="legend-scroll" id="legendContainer">
+                        <!-- Legend items will be inserted here by JS -->
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div id="timelineLoadingMessage">Loading timeline...</div>
+                    <canvas id="timelineChart" style="display: none;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card" id="dominantEmotion">
+                <h3>Dominant Emotion</h3>
+                <p>Loading...</p>
+            </div>
+        </div>
+        
+        <!-- Add top content section -->
+        <div class="top-content">
+            <div class="content-card" id="topComment">
+                <h3>Top Comment of the Day</h3>
+                <div class="content-loading">Loading...</div>
+                <div class="content-body" style="display: none;">
+                    <p class="content-text"></p>
+                    <div class="content-meta">
+                        <span class="author"></span>
+                        <span class="score"><i class="fas fa-arrow-up"></i> <span class="score-value"></span></span>
+                        <span class="emotion"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card" id="topPost">
+                <h3>Top Post of the Day</h3>
+                <div class="content-loading">Loading...</div>
+                <div class="content-body" style="display: none;">
+                    <a class="post-link" href="#" target="_blank">
+                        <h4 class="post-title"></h4>
+                    </a>
+                    <div class="content-meta">
+                        <span class="author"></span>
+                        <span class="score"><i class="fas fa-arrow-up"></i> <span class="score-value"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add footer with social links -->
+        <footer class="social-footer">
+            <a href="https://github.com/tystratton" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ty-stratton/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
